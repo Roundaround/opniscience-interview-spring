@@ -41,4 +41,61 @@ public class DocumentEntity {
 
   @Column(nullable = false)
   private Instant updatedAt;
+
+  public static DocumentEntity create(
+      String externalId,
+      String filename,
+      String contentType,
+      long sizeBytes,
+      Integer version,
+      String s3Bucket,
+      String s3Key,
+      UUID ownerUserId
+  ) {
+    throw new UnsupportedOperationException("TODO");
+  }
+
+  public UUID getId() {
+    return this.id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public String getFilename() {
+    return this.filename;
+  }
+
+  public String getContentType() {
+    return this.contentType;
+  }
+
+  public long getSizeBytes() {
+    return this.sizeBytes;
+  }
+
+  public Integer getVersion() {
+    return this.version;
+  }
+
+  public String getS3Bucket() {
+    return this.s3Bucket;
+  }
+
+  public String getS3Key() {
+    return this.s3Key;
+  }
+
+  public UUID getOwnerUserId() {
+    return this.ownerUserId;
+  }
+
+  public Instant getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return this.updatedAt;
+  }
 }

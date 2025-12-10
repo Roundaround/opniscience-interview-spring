@@ -2,6 +2,7 @@ package com.opniscience.interview.documents.services;
 
 import com.opniscience.interview.documents.jpa.entities.DocumentEntity;
 import com.opniscience.interview.documents.jpa.repositories.DocumentRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +14,16 @@ import java.util.UUID;
 public class DocumentService {
   private final ObjectStorageClient storageClient;
   private final DocumentRepository documentRepository;
+  private final String bucketName;
 
-  public DocumentService(ObjectStorageClient storageClient, DocumentRepository documentRepository) {
+  public DocumentService(
+      ObjectStorageClient storageClient,
+      DocumentRepository documentRepository,
+      @Value("${app.document-bucket}") String bucketName
+  ) {
     this.storageClient = storageClient;
     this.documentRepository = documentRepository;
+    this.bucketName = bucketName;
   }
 
   /**
