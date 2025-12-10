@@ -4,13 +4,11 @@ import com.opniscience.interview.documents.jpa.entities.DocumentEntity;
 import com.opniscience.interview.documents.jpa.repositories.DocumentRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-@Transactional
 public class DocumentService {
   private final ObjectStorageClient storageClient;
   private final DocumentRepository documentRepository;
@@ -36,7 +34,6 @@ public class DocumentService {
   /**
    * Download the latest version of a document by external ID.
    */
-  @Transactional(readOnly = true)
   public byte[] downloadDocument(String externalId) {
     throw new UnsupportedOperationException("TODO");
   }
@@ -58,7 +55,6 @@ public class DocumentService {
   /**
    * List all documents for a given user.
    */
-  @Transactional(readOnly = true)
   public List<DocumentEntity> listUserDocuments(UUID userId) {
     throw new UnsupportedOperationException("TODO");
   }
